@@ -2,19 +2,19 @@
   <div >
     
       <!-- main content -->
-      <div class="w-full text-start text-20px font-400 px-80px mb-55">
+      <div class="w-full text-start text-20px font-normal px-80px">
 
-          <p>NOW SHOWING</p>
+          <p class="mb-17px">NOW SHOWING</p>
 
           <div class="flex flex-wrap gap-x-20px gap-y-17px">
             <!-- mapped cards -->
-              <nuxt-link v-for="(movie, index) in movies" :key="index" :to="{ path: '/movie/' + movie.title.toLowerCase().replace(/ /g, '-') }" class="w-240px h-356px object-contain cursor-pointer hover:scale-105 duration-200">
-                  <img :src="'/images/' + movie.posterLink" :alt="movie.title"/>
+              <nuxt-link v-for="(movie, index) in movies" :key="index" :to="{ path: '/movie/' + movie.title.toLowerCase().replace(/ /g, '-') }" class="w-240px h-356px  cursor-pointer hover:scale-105 duration-200 overflow-hidden">
+                  <img :src="'/images/' + movie.posterLink" :alt="movie.title" class="w-full object-cover "/>
               </nuxt-link>
               
           </div>
           
-          <p class="w-full text-start font-400">COMING SOON</p>
+          <p class="w-full mt-42px text-start font-400">COMING SOON</p>
 
       </div>
       <!-- end of main content -->
