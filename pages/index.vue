@@ -1,50 +1,33 @@
 <template>
-  <div class="w-full text-#FFFFFF bg-gradient-to-br from-#000000 to-#575757 flex justify-center">
+  <div >
     
-    <div class="w-1440px">
-      <nav class="flex w-full justify-center h-110px items-center my-10.5px">
-        <div class="flex text-16px gap-60px">
-          <a><nuxt-link class="tracking-widest cursor-pointer" to="/">MOVIES</nuxt-link></a>
-          <a><nuxt-link class="tracking-widest cursor-pointer" to="/theaters">THEATERS</nuxt-link></a>
-        </div>
-      </nav>
-
       <!-- main content -->
       <div class="w-full text-start text-20px font-400 px-80px mb-55">
 
-        <p>NOW SHOWING</p>
+          <p>NOW SHOWING</p>
 
-        <div class="flex flex-wrap gap-x-20px gap-y-17px">
-          <!-- mapped cards -->
-          <div v-for="movie in movies"  :key="movie.movieId"
-              class="w-240px h-356px object-contain cursor-pointer hover:scale-105 duration-200">
-            <img :src="'/images/' + movie.posterLink" :alt="movie.title"/>
+          <div class="flex flex-wrap gap-x-20px gap-y-17px">
+            <!-- mapped cards -->
+              <nuxt-link v-for="(movie, index) in movies" :key="index" :to="{ path: '/movie/' + movie.title.toLowerCase().replace(/ /g, '-') }" class="w-240px h-356px object-contain cursor-pointer hover:scale-105 duration-200">
+                  <img :src="'/images/' + movie.posterLink" :alt="movie.title"/>
+              </nuxt-link>
+              
           </div>
-        </div>
-        
           
-        
-
-        <p class="w-full text-start text-20px font-400">COMING SOON</p>
-
-
-
+          <p class="w-full text-start font-400">COMING SOON</p>
 
       </div>
-  
-    </div>
+      <!-- end of main content -->
   </div>
- 
 </template>
 
 <script>
 
 export default {
 
-    
-    data() {
-        return {
-movies: [
+data() {
+  return {
+    movies: [
     {
       
       title: "Doctor Strange in the Multiverse of Madness",
@@ -179,9 +162,16 @@ movies: [
   ]
 
         }},
-    
 
-};
+  methods: {
+      redirectToPage (index){
+      const slug = movies[index].title.toLowerCase().replace(/ /g, '-')
+      this.$router.push(`/movie/${slug}`)
+    }
+  },
+
+}
+
 </script>
 
 <style scoped>
