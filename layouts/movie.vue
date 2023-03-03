@@ -9,7 +9,7 @@
         <!-- nav bar -->
         <div class="w-1440px h-screen z-30">
             <nav class="flex w-full justify-between  h-47px my-41px items-center">
-                <nuxt-link to="/"><img src="/public/arrow-back-rounded.svg" class="text-white h-34px cursor-pointer"/></nuxt-link>
+                <nuxt-link to="/"><img src="/arrow-back-rounded.svg" class="text-white h-34px cursor-pointer"/></nuxt-link>
                 <div class="flex text-16px font-semibold gap-60px pl-50px">
                     <nuxt-link class="format tracking-widest cursor-pointer router-link-active" to="/">MOVIES</nuxt-link>
                     <nuxt-link class="format tracking-widest cursor-pointer" to="/theaters">THEATERS</nuxt-link>
