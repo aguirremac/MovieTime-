@@ -80,10 +80,6 @@
     
 }
 
-.bg-movie {
-  background-image: url('public/images/doctor.png');
-  background-position: 50% 35%;
-  background-size: cover;
-}
+
 
 </style>
