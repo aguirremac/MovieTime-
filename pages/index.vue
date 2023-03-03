@@ -2,7 +2,7 @@
  
     
       <!-- main content -->
-      <div class="w-1444px w-full text-start text-20px font-normal px-31px md:px-80px">
+      <div class="mx-auto w-1444px w-full text-start text-20px font-normal px-31px md:px-80px">
 
           <p class="hidden md:block mb-17px">NOW SHOWING</p>
 
