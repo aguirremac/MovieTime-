@@ -7,9 +7,10 @@
             <div :style="bgStyle" class=" bg-movie h-full w-full blur-150px"></div>
         </div>
        
-        <div class="w-390px sm:w-600px md:w-670px lg:w-1200px xl:w-1440px h-screen z-30">
+        <!-- main container -->
+        <div class="w-390px sm:w-600px md:w-670px lg:w-1200px xl:w-1440px h-screen flex-col lg:flex z-30">
              <!-- nav bar -->
-            <nav class="flex w-full justify-between  h-47px my-25px md:my-41px items-center">
+            <nav class="flex  justify-between px-82px h-47px my-25px md:my-41px items-center">
                 <nuxt-link to="/"><img src="/arrow-back-rounded.svg" class="text-white h-34px cursor-pointer"/></nuxt-link>
                 <div class="hidden md:flex text-16px font-semibold gap-60px pl-50px">
                     <nuxt-link class="format tracking-widest cursor-pointer router-link-active" to="/">MOVIES</nuxt-link>
@@ -17,8 +18,8 @@
                 </div>
              </nav>
 
-            <!-- main content -->
-            <div  class="w-full flex-col items-center lg:flex gap-x-47px mt-31px">
+            <!-- center content -->
+            <div  class=" md:flex justify-between px-82px  gap-x-47px mt-31px">
                     <!-- left side  -->
                     <div class="flex flex-col justify-start">
                         <img :src="'/images/' + selectedMovie.posterLink"  alt="poster" class="mb-18px w-156px h-232px md:h-398px md:w-268px">
@@ -35,7 +36,7 @@
 
 
                 <!-- right side -->
-                <div class="h-full flex flex-col justify-start pt-8px">
+                <div class="h-full flex-col justify-start pt-8px">
                     <!-- title -->
                     <div >
                         <h1 class="text-32px font-medium leading-none my-0">{{selectedMovie.title}}</h1>
