@@ -24,11 +24,11 @@
                 <div class="flex justify-center items-center mb-11px h-74px w-268px bg-#030303 rounded-lg">
                     <img src="/imdb.png" alt="" class="h-35px w-64px pr-52px ">
                     <img src="/star.png" alt="" class="h-22px pr-11px">
-                    <h1 class="text-31px font-semibold">7.4</h1>
+                    <h1 class="text-31px font-semibold">{{ selectedMovie.imdbRating }}</h1>
                 </div>
                 <div class="flex justify-center items-center h-74px w-268px bg-#030303 rounded-lg">
                     <img src="/rotten.png" alt="" class="h-40px pr-64px">
-                    <h1 class="text-31px font-semibold">83%</h1>
+                    <h1 class="text-31px font-semibold">{{ selectedMovie.rTRating }}</h1>
                 </div>
             </div>
 
