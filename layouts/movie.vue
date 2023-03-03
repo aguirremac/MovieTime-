@@ -4,7 +4,7 @@
         
         <!-- blurred background poster -->
         <div class="w-full h-full absolute top-0 left-0 z-10">
-            <div style="background-image: url('/images/doctor.png'); background-position: 50% 35%; background-size: cover;" class="h-full blur-150px"></div>
+            <div  class="h-full blur-150px"></div>
         </div>
         <!-- nav bar -->
         <div class="w-1440px h-screen z-30">
