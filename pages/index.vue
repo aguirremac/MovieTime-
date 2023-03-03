@@ -1,16 +1,16 @@
 <template>
-  <div >
+ 
     
       <!-- main content -->
-      <div class="w-full text-start text-20px font-normal px-80px">
+      <div class="mx-auto w-1444px w-full text-start text-20px font-normal px-31px md:px-80px">
 
-          <p class="mb-17px">NOW SHOWING</p>
+          <p class="hidden md:block mb-17px">NOW SHOWING</p>
 
-          <div class="flex flex-wrap gap-x-20px gap-y-17px">
+          <div class="flex justify-between flex-wrap gap-x-16px md:gap-x-20px gap-y-17px">
             <!-- mapped cards -->
               <nuxt-link  v-for="(movie, index) in movies" 
                           :key="index"
-                          :to="{ path: '/movie/' + movie.title.toLowerCase().replace(/ /g, '-') }" class="w-240px h-356px  cursor-pointer hover:scale-105 duration-200 overflow-hidden">
+                          :to="{ path: '/movie/' + movie.title.toLowerCase().replace(/ /g, '-') }" class="w-156px h-232px md:w-240px md:h-356px  cursor-pointer hover:scale-105 duration-200 overflow-hidden">
                   <img :src="'/images/' + movie.posterLink" :alt="movie.title" class="w-full object-cover "/>
               </nuxt-link>
               
@@ -20,7 +20,7 @@
 
       </div>
       <!-- end of main content -->
-  </div>
+
 </template>
 
 
