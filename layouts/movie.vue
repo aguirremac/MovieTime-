@@ -80,6 +80,7 @@
     
 }
 
+<<<<<<< HEAD
 /* .bg-movie {
     background-image: url('/images/doctor.png');
     background-position: 50% 35%;
@@ -87,3 +88,7 @@
   } */
 
 </style>
+=======
+
+</style>
+>>>>>>> 7d9de6a3197e18e60bb573d392a4f914fbbc2657
