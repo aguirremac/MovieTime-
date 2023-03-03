@@ -1,8 +1,13 @@
 <template>
-    <div class="w-full text-#FFFFFF bg-gradient-to-br from-#000000 to-#575757 flex justify-center">
-
+    
+    <div class=" w-full text-#FFFFFF bg-gradient-to-br from-#000000 to-#575757 flex justify-center">
+        
+        <!-- blurred background poster -->
+        <div class="w-full h-full absolute top-0 left-0 z-10">
+            <div class="h-full bg-movie blur-150px"></div>
+        </div>
         <!-- nav bar -->
-        <div class="w-1440px">
+        <div class="w-1440px h-screen z-30">
             <nav class="flex w-full justify-between  h-47px my-41px items-center">
                 <nuxt-link to="/"><img src="@/public/arrow-back-rounded.svg" class="text-white h-34px cursor-pointer"/></nuxt-link>
                 <div class="flex text-16px font-semibold gap-60px pl-50px">
@@ -45,7 +50,7 @@
                 </div>
                 <!-- cards -->
                 <div>
-                    <CinenemaSchedule />
+                    
                 </div>
             </div>
        
@@ -54,6 +59,7 @@
 
         </div>
     </div>
+
 </template>
 
 
@@ -73,4 +79,11 @@
     padding-bottom: 5px;
     
 }
+
+.bg-movie {
+  background-image: url('@/public/images/doctor.png');
+  background-position: 50% 35%;
+  background-size: cover;
+}
+
 </style>
