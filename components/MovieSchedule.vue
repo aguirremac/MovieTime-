@@ -1,84 +1,80 @@
 <template>
     <div    v-for="(cinema, index) in cinemaDetails" 
             :key="index"
-            class="bg-#262626 rounded-xl drop-shadow-xl w-472px h-278px">
+            class="bg-#262626  rounded-xl drop-shadow-xl w-328px h-193px xl:w-472px xl:h-278px xl:w-472px xl:h-278px">
         <!-- cinema icon + name -->
-        <div class="flex gap-14px w-full pt-23px pl-26px">
+        <div class="flex gap-14px w-full pt-16px xl:pt-23px pl-18px xl:pl-26px">
             <img :src="'/cinemas/' + cinema.cinemaPosterURL" 
                  :alt="cinema.location" 
-                 class="rounded-full h-53px"
+                 class="rounded-full h-37px xl:h-53px"
                     
                     >
             <div>
-                <h2 class="font-normal text-24px m-0">{{ cinema.location }}</h2>
-                <h3 class="font-thin text-20px m-0">Cinema {{ cinema.cinemaNum }}</h3>
+                <h2 class="font-normal text-16px xl:text-24px m-0">{{ cinema.location }}</h2>
+                <h3 class="font-thin text-13px xl:text-20px m-0">Cinema {{ cinema.cinemaNum }}</h3>
             </div>
         </div>
 
-        <!-- title: "Doctor Strange in the Multiverse of Madness",
-        movieId : "movie1",
-        location: "SM North Edsa",
-        cinemaPosterURL: 'smcinema.png',
-        cinemaNum: [1, 2, 3, 4],
-        timeSlot: ["09:00", "11:00", "13:00", "15:00"], -->
-
+    
         <!-- time slots -->
-        <div class="pl-100px pr-37px flex flex-wrap gap-x-38px mt-15px" >
+        <div class="pl-69px xl:pl-100px pr-25px xl:pr-37px flex flex-wrap gap-x-26px xl:gap-x-38px mt-10px xl:mt-15px" >
             <h2 v-for="(time, qIndex) in cinema.timeSlot"
                 :key="qIndex"
-                class="m-0 font-light text-30px"
-                :class="{'line-through' : timeNow  >= time}"
+                class="m-0 font-light text-21px xl:text-30px"
+                :class="{'line-through text-#616161' : timeNow  >= time}"
                 >{{ time }} </h2>
             
         </div>
 
 
-
-        <!-- <div v-for="(timeArray , timeIndex) in timeSlot"
-            :key="timeIndex"
-            class="pl-100px pr-37px flex flex-wrap gap-x-38px mt-15px" >
-            <h2 v-for="(time, qIndex) in timeArray"
-                :key="qIndex"
-                class="m-0 font-light text-30px"
-                :class="{'line-through' : now  >= time}"
-                >{{ ("0" + time.getHours()).slice(-2)   + ":" + ("0" + time.getMinutes()).slice(-2) }} </h2>
-            
-        </div> -->
-
-        <button class="bg-#32A544 text-white text-20px font-semibold w-445px h-51px rounded-xl border-none mx-14px mt-24px cursor-pointer active:scale-105">Buy Tickets</button>
-        <p class="text-14px font-light text-center m-0 mt-6px">Next available schedule is in 2hr 30m.</p>
-
+        <button v-if="timeSlot[index].cdMinutes"  
+                class="bg-#32A544  text-white text-14px xl:text-20px font-semibold w-308px h-35px xl:w-445px xl:h-51px rounded-xl border-none mx-14px mt-17px xl:mt-24px cursor-pointer active:scale-105 duration-200"
+                :class="{'bg-black hover:scale-100': timeSlot[index].cdMinutes < 0 && timeSlot[index].cdHours < 0}"
+        >Buy Tickets</button>
+       
+        <p v-if="timeSlot[index].cdMinutes" class="text-9.7px xl:text-14px font-extralight text-center m-0 mt-6px">Next available schedule is in {{timeSlot[index].cdHours}}h {{ timeSlot[index].cdMinutes}}m.</p>
+        
     </div>
 </template>
 
 <script setup>
 
 const {cinemaDetails} = useSchedule();
+let countdownHours = 0;
+let countdownMinutes = 0;
 
-const todayString = new Date().toLocaleDateString("en-US", {
-  year: "numeric",
-  month: "long",
-  day: "numeric"
-}); //March/6/2023
+// const todayString = new Date().toLocaleDateString("en-US", {
+//   year: "numeric",
+//   month: "long",
+//   day: "numeric"
+// }); //March/6/2023
 
-
-
-const timeSlot = cinemaDetails.map(cinema=> cinema.timeSlot.map(time=>new Date(`${todayString} ${time}:00`)) )
 const now = new Date()
 const timeNow = ("0" + now.getHours()).slice(-2)   + ":" + ("0" + now.getMinutes()).slice(-2)
-console.log(timeNow);
-console.log(timeSlot)
 
+const timeSlot = cinemaDetails.map((cinema) => {
+  let smallestDiff = Infinity;
 
-// cinemaDetails.forEach(cinema => {
-//   cinema.timeSlots.forEach(time => {
-//     if (time > now && (!nextTimeSlot || timeSlot < nextTimeSlot)) {
-//       nextTimeSlot = timeSlot;
-//     }
-//   });
-// });
+  cinema.timeSlot.forEach(time => {
+    const [hours, minutes] = time.split(":");
+    const future = new Date();
+    future.setHours(hours);
+    future.setMinutes(minutes);
+    const diff = future - now;
 
+    if (diff > 0 && diff < smallestDiff) {
+      smallestDiff = diff;
+    }
+  });
 
+  const cdHours = Math.floor(smallestDiff / (1000 * 60 * 60));
+  const cdMinutes = Math.floor((smallestDiff / (1000 * 60)) % 60);
+
+  return {
+    cdHours,
+    cdMinutes
+  };
+});
 
 
 

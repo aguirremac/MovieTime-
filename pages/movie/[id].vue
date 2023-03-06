@@ -51,11 +51,11 @@
                         </h3>
                     </div>
                 <!-- location -->
-                <div class="hidden md:flex items-center h-46px lg:w-700px xl:w-850px 2xl:w-954px bg-#030303 rounded-lg  mt-18px mb-0">
+                <div class="hidden md:flex items-center max-w-full h-46px lg:w-700px xl:w-850px 2xl:w-954px bg-#030303 rounded-lg  mt-18px mb-0">
                     <p class="text-start md:text-12px lg:text-16px font-normal px-24px py-14px ">Turn on <span class="font-bold">Location Services</span> to find cinema theaters nearest you!</p>
                 </div>
                 <!-- cards -->
-                <div class="flex gap-x-10px gap-y-14px flex-wrap h-full my-14px">
+                <div class="flex justify-center gap-x-10px gap-y-14px flex-wrap h-full mx-auto my-14px">
                     <MovieSchedule />
                 </div>
             </div>
