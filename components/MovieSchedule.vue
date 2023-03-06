@@ -1,12 +1,12 @@
 <template>
-    <div    v-for="(cinema, index) in cinemaDetails" 
+    <div    v-for="(cinema, index) in sortedCinemaDetails" 
             :key="index"
             class="bg-#262626  rounded-xl drop-shadow-xl w-328px h-193px xl:w-472px xl:h-278px xl:w-472px xl:h-278px">
         <!-- cinema icon + name -->
         <div class="flex gap-14px w-full pt-16px xl:pt-23px pl-18px xl:pl-26px">
             <img :src="'/cinemas/' + cinema.cinemaPosterURL" 
                  :alt="cinema.location" 
-                 class="rounded-full h-37px xl:h-53px"
+                 class="rounded-full h-37px w-37px xl:h-53px xl:w-53px"
                     
                     >
             <div>
@@ -29,19 +29,20 @@
 
         <button v-if="timeSlot[index].cdMinutes"  
                 class="bg-#32A544  text-white text-14px xl:text-20px font-semibold w-308px h-35px xl:w-445px xl:h-51px rounded-xl border-none mx-14px mt-17px xl:mt-24px cursor-pointer active:scale-105 duration-200"
-                :class="{'bg-black hover:scale-100': timeSlot[index].cdMinutes < 0 && timeSlot[index].cdHours < 0}"
-        >Buy Tickets</button>
+                >Buy Tickets</button>
        
         <p v-if="timeSlot[index].cdMinutes" class="text-9.7px xl:text-14px font-extralight text-center m-0 mt-6px">Next available schedule is in {{timeSlot[index].cdHours}}h {{ timeSlot[index].cdMinutes}}m.</p>
         
     </div>
 </template>
 
+
+
 <script setup>
 
 const {cinemaDetails} = useSchedule();
-let countdownHours = 0;
-let countdownMinutes = 0;
+// sort cinema location a-z
+const sortedCinemaDetails = cinemaDetails.sort((a,b)=> a.location.localeCompare(b.location))
 
 // const todayString = new Date().toLocaleDateString("en-US", {
 //   year: "numeric",

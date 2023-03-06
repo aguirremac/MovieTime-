@@ -1,78 +1,70 @@
 <template>
- <div>
+  <div class="mx-auto w-1444px min-h-screen h-full text-start text-20px font-normal px-31px md:px-80px">
+
+      <div class="hidden md:flex items-center w-full h-46px bg-#030303 rounded-lg  mt-18px mb-0">
+          <p class="text-start md:text-16px font-normal px-24px py-14px ">Turn on <span class="font-bold">Location Services</span> to find cinema theaters nearest you!</p>
+      </div>
+
       <!-- main content -->
-      <div class="w-full h-screen text-start text-20px font-400 px-80px mb-55">
+      <div class="w-full h-full flex flex-wrap gap-10px ">
 
-        <p>NOW SHOWING</p>
+          <!-- mapped theater cards -->
+        <div  v-for ="(cinema, index) in sortedCinemaDetails"
+              :key="index"
+              class="flex justify-between w-624px h-183px bg-#262626 rounded-xl mt-14px">
+                <!-- left part -->
+            <div class="">
 
-        <div class="flex flex-wrap gap-x-20px gap-y-17px">
-          <!-- mapped cards -->
-         <div v-for="movie in movies"  :key="movie.movieId"
-              class="w-240px h-356px object-contain cursor-pointer hover:scale-105 duration-200">
-            <img :src="'/images/' + movie.posterLink" :alt="movie.title"/>
+              <div class="flex gap-14px w-full pt-16px xl:pt-23px pl-18px xl:pl-26px">
+                <img :src="'/cinemas/'+ cinema.cinemaPosterURL" 
+                    alt="" 
+                    class="rounded-full h-37px w-37px xl:h-53px xl:w-53px"
+                    >
+                <div>
+                  <h2 class="font-normal text-16px xl:text-24px m-0">{{ cinema.location }}</h2>
+                  <h3 class="font-thin text-13px xl:text-20px m-0">Cinema {{ cinema.cinemaNum }}</h3>
+                </div>
+              </div>
+
+               <!-- time slots -->
+            <div class="pl-15px xl:pl-27px pr-75px xl:pr-150px  flex flex-wrap gap-x-15px xl:gap-x-26px mt-10px xl:mt-15px" >
+              <h2 v-for="(time, qIndex) in cinema.timeSlot"
+                  :key="qIndex"
+                  class="m-0 font-light text-15px xl:text-20px"
+                  >{{ time }}</h2> 
+             </div>
           </div>
-        </div>
-        
+
+         
+          <!-- image -->
+          <div  v-for="(movie, qIndex) in movies"
+                :key="qIndex"
+                class="flex gap-0 my-auto mr-2px">
+                
+           <div v-if="movie.title === cinema.title"
+                class="overflow-hidden">
+              <img  :src="'/images/'+movie.posterLink" alt="" class="h-142px w-95px object-cover ">
+           </div>     
+          </div>
 
 
         </div>
+      </div>
 
-
-    
   </div>
-
+    
 </template>
 
-<script>
-export default {
-  data() {
-        return {
-movies: [
-    
-    {
-      
-      title: "The Bad Guys",
-      movieId : "movie2",
-      year: "2022",
-      rated: "PG",
-      released: "22 April 2022",
-      runtime: "1h 40m",
-      imdbRating: "6.8",
-      rTRating: "62%",
-      posterLink: "bad.png",
-      type: "movie",
-    },
-    {
-      
-      title: "Firestarter",
-      movieId : "movie4",
-      year: "2022",
-      rated: "R",
-      released: "12 May 2022",
-      runtime: "1h 34m",
-      imdbRating: "4.6",
-      rTRating: "55%",
-      posterLink: "firestarter.png",
-      type: "movie",
-    },
-    {
-      
-      title: "Everything Everywhere All at Once",
-      movieId : "movie5",
-      year: "2022",
-      rated: "R",
-      released: "8 April 2022",
-      runtime: "2h 19m",
-      imdbRating: "8.0",
-      rTRating: "85%",
-      posterLink: "eeaao.png",
-      type: "movie",
-    },
-  ]}
-  }}
+<script setup>
 
+const { cinemaDetails } = useSchedule();
+const { movies } = useMovieData();
+// sort cinema location a-z
+const sortedCinemaDetails = cinemaDetails.sort((a,b)=> a.location.localeCompare(b.location))
 
+//find matching poster
 
+// const filteredMovie = cinemaDetails.filter((cinema)=> )
 
 </script>
 

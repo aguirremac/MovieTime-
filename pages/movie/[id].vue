@@ -1,9 +1,9 @@
 <template>
     
-    <div class=" w-full text-#FFFFFF bg-gradient-to-br from-#000000 to-#575757 flex justify-center">
+    <div class=" w-full min-h-screen text-#FFFFFF bg-gradient-to-br from-#000000 to-#575757 flex justify-center">
         
         <!-- blurred background poster -->
-        <div  class="w-full h-full absolute top-0 left-0 z-10">
+        <div  class="w-full min-h-screen h-full absolute top-0 left-0 z-10">
             <div :style="bgStyle" class=" bg-movie h-full w-full blur-150px"></div>
         </div>
        
