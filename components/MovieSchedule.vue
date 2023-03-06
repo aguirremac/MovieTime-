@@ -24,14 +24,28 @@
 
         <!-- time slots -->
         <div class="pl-100px pr-37px flex flex-wrap gap-x-38px mt-15px" >
-            <h2 v-for="(time , timeIndex) in cinema.timeSlot"
-                :key="timeIndex"
+            <h2 v-for="(time, qIndex) in cinema.timeSlot"
+                :key="qIndex"
                 class="m-0 font-light text-30px"
-                >{{ time }}</h2>
+                :class="{'line-through' : timeNow  >= time}"
+                >{{ time }} </h2>
             
         </div>
 
-        <button class="bg-#32A544 text-white text-20px font-semibold w-445px h-51px rounded-xl border-none mx-14px mt-24px">Buy Tickets</button>
+
+
+        <!-- <div v-for="(timeArray , timeIndex) in timeSlot"
+            :key="timeIndex"
+            class="pl-100px pr-37px flex flex-wrap gap-x-38px mt-15px" >
+            <h2 v-for="(time, qIndex) in timeArray"
+                :key="qIndex"
+                class="m-0 font-light text-30px"
+                :class="{'line-through' : now  >= time}"
+                >{{ ("0" + time.getHours()).slice(-2)   + ":" + ("0" + time.getMinutes()).slice(-2) }} </h2>
+            
+        </div> -->
+
+        <button class="bg-#32A544 text-white text-20px font-semibold w-445px h-51px rounded-xl border-none mx-14px mt-24px cursor-pointer active:scale-105">Buy Tickets</button>
         <p class="text-14px font-light text-center m-0 mt-6px">Next available schedule is in 2hr 30m.</p>
 
     </div>
@@ -40,7 +54,33 @@
 <script setup>
 
 const {cinemaDetails} = useSchedule();
-console.log(cinemaDetails);
+
+const todayString = new Date().toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+}); //March/6/2023
+
+
+
+const timeSlot = cinemaDetails.map(cinema=> cinema.timeSlot.map(time=>new Date(`${todayString} ${time}:00`)) )
+const now = new Date()
+const timeNow = ("0" + now.getHours()).slice(-2)   + ":" + ("0" + now.getMinutes()).slice(-2)
+console.log(timeNow);
+console.log(timeSlot)
+
+
+// cinemaDetails.forEach(cinema => {
+//   cinema.timeSlots.forEach(time => {
+//     if (time > now && (!nextTimeSlot || timeSlot < nextTimeSlot)) {
+//       nextTimeSlot = timeSlot;
+//     }
+//   });
+// });
+
+
+
+
 
 </script>
 

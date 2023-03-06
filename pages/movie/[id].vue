@@ -55,7 +55,7 @@
                     <p class="text-start md:text-12px lg:text-16px font-normal px-24px py-14px ">Turn on <span class="font-bold">Location Services</span> to find cinema theaters nearest you!</p>
                 </div>
                 <!-- cards -->
-                <div class="flex gap-x-10px gap-y-14px flex-wrap h-full mt-14px">
+                <div class="flex gap-x-10px gap-y-14px flex-wrap h-full my-14px">
                     <MovieSchedule />
                 </div>
             </div>

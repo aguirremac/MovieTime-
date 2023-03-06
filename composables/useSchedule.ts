@@ -8,7 +8,7 @@ export const useSchedule = () => {
         location: "SM North Edsa",
         cinemaPosterURL: 'smcinema.png',
         cinemaNum: 1,
-        timeSlot: ["09:00", "11:00", "13:00", "15:00"],
+        timeSlot: ["09:00", "11:00", "13:00", "15:00", "18:00"],
       },
       {  
         title: "Doctor Strange in the Multiverse of Madness",
