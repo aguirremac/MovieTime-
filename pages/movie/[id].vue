@@ -8,7 +8,7 @@
         </div>
        
         <!-- main container -->
-        <div class="w-390px sm:w-600px md:w-670px lg:w-1200px xl:w-1440px h-screen flex-col  lg:flex z-30 ">
+        <div class="w-390px sm:w-600px md:w-670px lg:w-1200px xl:w-1440px h-full flex-col  lg:flex z-30 ">
              <!-- nav bar -->
             <nav class="flex  justify-between  h-47px my-25px md:my-41px items-center px-36px lg:px-30px xl:px-60px 2xl:px-82px">
                 <nuxt-link to="/"><img src="/arrow-back-rounded.svg" class="text-white h-34px cursor-pointer"/></nuxt-link>
@@ -52,11 +52,11 @@
                     </div>
                 <!-- location -->
                 <div class="hidden md:flex items-center h-46px lg:w-700px xl:w-850px 2xl:w-954px bg-#030303 rounded-lg  mt-18px mb-0">
-                    <p class="text-start md:text-12px lg:text-16px font-normal px-24px py-14px ">Turn on Location Services to find cinema theaters nearest you!</p>
+                    <p class="text-start md:text-12px lg:text-16px font-normal px-24px py-14px ">Turn on <span class="font-bold">Location Services</span> to find cinema theaters nearest you!</p>
                 </div>
                 <!-- cards -->
-                <div>
-                    <p></p>
+                <div class="flex gap-x-10px gap-y-14px flex-wrap h-full mt-14px">
+                    <MovieSchedule />
                 </div>
             </div>
        
