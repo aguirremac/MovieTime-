@@ -1,5 +1,5 @@
-export interface Movie {
-    title: String;
+export interface MovieType {
+      title: String;
       movieId : String;
       year: Number;
       rated: String;
@@ -12,7 +12,7 @@ export interface Movie {
 }
 
 
-export interface Cinema {  
+export interface CinemaType {  
         title: String;
         movieId : String;
         location: String;

@@ -19,7 +19,7 @@
       </nav>
 
       <!-- center content -->
-      <div class="md:flex md:justify-center gap-x-20px lg:gap-60px xl:gap-x-47px mt-31px px-36px lg:px-30px xl:px-60px 2xl:px-82px">
+      <div class="md:flex md:justify-center gap-x-20px md:gap-x-10px  lg:gap-60px xl:gap-x-47px mt-31px px-36px lg:px-30px xl:px-60px 2xl:px-82px">
         <!-- left side  -->
         <div class="flex-col lg:flex lg:justify-start">
           <div class="flex justify-center">
@@ -70,9 +70,9 @@
             </p>
           </div>
           <!-- cards -->
-          <div class="flex justify-center lg:justify-start gap-x-10px gap-y-14px flex-wrap h-full mx-auto my-14px">
-            <MovieSchedule selectedMovie="selectedMovie.title"/>
-          </div>
+          
+            <MovieSchedule :movie="selectedMovie"/>
+          
         </div>
       </div>
     </div>
@@ -90,7 +90,7 @@ const selectedMovie = movies.find(
       .replace(/ /g, '-')
       .replace(/[^\w-]+/g, '') === id
 )
-console.log(selectedMovie.title);
+
 
 const bgStyle = {
   'background-image': `url('/images/${selectedMovie.posterLink}')`,
