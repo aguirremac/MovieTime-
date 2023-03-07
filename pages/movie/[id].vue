@@ -71,7 +71,7 @@
           </div>
           <!-- cards -->
           <div class="flex justify-center lg:justify-start gap-x-10px gap-y-14px flex-wrap h-full mx-auto my-14px">
-            <MovieSchedule />
+            <MovieSchedule selectedMovie="selectedMovie.title"/>
           </div>
         </div>
       </div>
@@ -90,6 +90,7 @@ const selectedMovie = movies.find(
       .replace(/ /g, '-')
       .replace(/[^\w-]+/g, '') === id
 )
+console.log(selectedMovie.title);
 
 const bgStyle = {
   'background-image': `url('/images/${selectedMovie.posterLink}')`,
