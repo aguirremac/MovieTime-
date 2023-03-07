@@ -6,7 +6,7 @@
     </div>
 
     <!-- main container -->
-    <div class="w-390px sm:w-600px md:w-670px lg:w-1200px xl:w-1440px h-full flex-col lg:flex z-30">
+    <div class="w-full   lg:w-1200px xl:w-1440px h-full flex-col lg:flex z-30">
       <!-- nav bar -->
       <nav
         class="flex justify-between h-47px my-25px md:my-41px items-center px-36px lg:px-30px xl:px-60px 2xl:px-82px"
@@ -19,7 +19,7 @@
       </nav>
 
       <!-- center content -->
-      <div class="md:flex justify-between gap-x-20px xl:gap-x-47px mt-31px px-36px lg:px-30px xl:px-60px 2xl:px-82px">
+      <div class="md:flex md:justify-center gap-x-20px lg:gap-60px xl:gap-x-47px mt-31px px-36px lg:px-30px xl:px-60px 2xl:px-82px">
         <!-- left side  -->
         <div class="flex-col lg:flex lg:justify-start">
           <div class="flex justify-center">
@@ -47,7 +47,7 @@
         </div>
 
         <!-- right side -->
-        <div class="h-full flex-col justify-start pt-8px">
+        <div class="h-full w-full flex-col justify-start pt-8px">
           <!-- title -->
           <div>
             <h1 class="text-24px xl:text-32px text-center md:text-start font-medium leading-none my-0">
@@ -63,7 +63,7 @@
           </div>
           <!-- location -->
           <div
-            class="hidden md:flex items-center max-w-full h-46px lg:w-700px xl:w-850px 2xl:w-954px bg-#030303 rounded-lg mt-18px mb-0"
+            class="hidden md:flex items-center max-w-full h-46px    bg-#030303 rounded-lg mt-18px mb-0"
           >
             <p class="text-start md:text-12px lg:text-16px font-normal px-24px py-14px">
               Turn on <span class="font-bold">Location Services</span> to find cinema theaters nearest you!
