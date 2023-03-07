@@ -19,7 +19,7 @@
       </nav>
 
       <!-- center content -->
-      <div class="md:flex md:justify-center gap-x-20px lg:gap-60px xl:gap-x-47px mt-31px px-36px lg:px-30px xl:px-60px 2xl:px-82px">
+      <div class="md:flex md:justify-center gap-x-20px md:gap-x-10px  lg:gap-60px xl:gap-x-47px mt-31px px-36px lg:px-30px xl:px-60px 2xl:px-82px">
         <!-- left side  -->
         <div class="flex-col lg:flex lg:justify-start">
           <div class="flex justify-center">
@@ -35,7 +35,7 @@
             >
               <img src="/imdb.png" alt="" class="h-19px md:h-25px 2xl:h-35px pr-2 lg:pr-52px" />
               <img src="/star.png" alt="" class="h-12px md:h-16px 2xl:h-22px pr-2 lg:pr-11px" />
-              <h1 class="text-17px md:text-25px 2xl:text-31px font-semibold">{{ selectedMovie.imdbRating }}</h1>
+              <h1 class="text-17px md:text-25px 2xl:text-31px font-semibold">{{ selectedMovie.imdbRating.toFixed(1) }}</h1>
             </div>
             <div
               class="flex justify-center items-center w-123px h-41px md:w-230px md:h-50px 2xl:h-74px 2xl:w-268px bg-#030303 rounded-lg"
@@ -70,9 +70,9 @@
             </p>
           </div>
           <!-- cards -->
-          <div class="flex justify-center lg:justify-start gap-x-10px gap-y-14px flex-wrap h-full mx-auto my-14px">
-            <MovieSchedule />
-          </div>
+          
+            <MovieSchedule :movie="selectedMovie"/>
+          
         </div>
       </div>
     </div>
@@ -90,6 +90,7 @@ const selectedMovie = movies.find(
       .replace(/ /g, '-')
       .replace(/[^\w-]+/g, '') === id
 )
+
 
 const bgStyle = {
   'background-image': `url('/images/${selectedMovie.posterLink}')`,

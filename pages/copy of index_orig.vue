@@ -35,8 +35,5 @@ a {
   padding-bottom: 5px;
 }
 
- @media (max-width: 1020px) {
-  
-  padding-left: 122px
-}
+
 </style>
