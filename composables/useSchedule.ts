@@ -16,7 +16,7 @@ export const useSchedule = () => {
         location: "SM Cubao",
         cinemaPosterURL: 'smcinema.png',
         cinemaNum: 2,
-        timeSlot: ["09:00", "11:00", "13:00", "15:00", "18:00", "20:00"],
+        timeSlot: ["09:00", "11:00", "13:00", "15:00", "18:00"],
       },
       {  
         title: "Doctor Strange in the Multiverse of Madness",

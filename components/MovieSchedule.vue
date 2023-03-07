@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center lg:justify-start gap-x-10px gap-y-14px flex-wrap h-full mx-auto my-14px">
     <div
-      v-for="(cinema, index) in sortedCinemaDetails"
+      v-for="(cinema, index) in filteredCinemas"
       :key="index"
       class="bg-#262626 rounded-xl drop-shadow-xl w-328px h-193px 2xl:w-472px 2xl:h-278px"
     >
@@ -50,21 +50,23 @@
 <script setup>
 
 const { cinemaDetails } = useSchedule()
+// sort cinema location a-z
+const sortedCinemaDetails = cinemaDetails.sort((a, b) => a.location.localeCompare(b.location))
+
 //deconstructing prop
 const { movie } = defineProps(['movie'])
 
 //filtering cinema based if matched with movie.title
-const filteredCinemas = cinemaDetails.filter(item=> movie.title === item.title)
+const filteredCinemas = sortedCinemaDetails.filter(item=> movie.title === item.title)
 
-// sort cinema location a-z
-const sortedCinemaDetails = filteredCinemas.sort((a, b) => a.location.localeCompare(b.location))
+
 
 
 
 const now = new Date()
 const timeNow = ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2)
 
-const timeSlot = cinemaDetails.map(cinema => {
+const timeSlot = filteredCinemas.map(cinema => {
   let smallestDiff = Infinity
 
   cinema.timeSlot.forEach(time => {
