@@ -2,7 +2,7 @@
   <!-- main content -->
   <div class="mx-auto w-1444px md:px-80px ">
     <div class="">
-    <p class="hidden md:block mb-17px lg:px-80px 2xl:px-0 padding-custom">NOW SHOWING</p>
+    <p class="hidden md:block mb-17px lg:px-80px 2xl:px-0 padding-custom text-20px">NOW SHOWING</p>
 
     <div class="flex flex-wrap justify-center lg:grid  lg:grid-cols-3   xl:grid-cols-4 2xl:grid-cols-5 gap-x-16px md:gap-x-20px gap-y-17px lg:px-80px  2xl:px-0">
       <!-- mapped cards -->
@@ -16,7 +16,7 @@
       </nuxt-link>
     </div>
   </div>
-    <p class="w-full mt-42px text-start font-400">COMING SOON</p>
+    <p class="w-full mt-42px text-start text-20px font-400">COMING SOON</p>
   </div>
   <!-- end of main content -->
 </template>
