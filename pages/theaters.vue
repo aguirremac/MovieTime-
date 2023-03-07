@@ -62,9 +62,6 @@ const { movies } = useMovieData();
 // sort cinema location a-z
 const sortedCinemaDetails = cinemaDetails.sort((a,b)=> a.location.localeCompare(b.location))
 
-//find matching poster
-
-// const filteredMovie = cinemaDetails.filter((cinema)=> )
 
 </script>
 
