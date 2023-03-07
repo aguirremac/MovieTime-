@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full min-h-screen flex justify-center mx-0 text-#FFFFFF bg-gradient-to-br from-#000000 via-#000000 via-opacity-70 to-#575757"
+    class=" min-h-screen flex justify-center mx-0 text-#FFFFFF bg-gradient-to-br from-#000000 via-#000000 via-opacity-70 to-#575757"
   >
     <!-- nav bar -->
     <div class="w-390px sm:w-600px md:w-670px lg:w-1200px xl:w-1440px ">
@@ -22,7 +22,7 @@
       </nav>
 
       <!-- main content -->
-      <div class="flex justify-center w-full">
+      <div class="flex justify-center min-w-full">
         <slot />
       </div>
     </div>
