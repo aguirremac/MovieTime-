@@ -35,7 +35,7 @@
             >
               <img src="/imdb.png" alt="" class="h-19px md:h-25px 2xl:h-35px pr-2 lg:pr-52px" />
               <img src="/star.png" alt="" class="h-12px md:h-16px 2xl:h-22px pr-2 lg:pr-11px" />
-              <h1 class="text-17px md:text-25px 2xl:text-31px font-semibold">{{ selectedMovie.imdbRating }}</h1>
+              <h1 class="text-17px md:text-25px 2xl:text-31px font-semibold">{{ selectedMovie.imdbRating.toFixed(1) }}</h1>
             </div>
             <div
               class="flex justify-center items-center w-123px h-41px md:w-230px md:h-50px 2xl:h-74px 2xl:w-268px bg-#030303 rounded-lg"

@@ -28,7 +28,7 @@
 
 
         <button v-if="timeSlot[index].cdMinutes"  
-                class="bg-#32A544  text-white text-14px 2xl:text-20px font-semibold w-308px h-35px 2xl:w-445px 2xl:h-51px rounded-xl border-none mx-14px mt-17px 2xl:mt-24px cursor-pointer active:scale-105 duration-200"
+                class="bg-#32A544  text-white text-14px 2xl:text-20px font-semibold w-308px h-35px 2xl:w-445px 2xl:h-51px rounded-xl border-none mx-14px mt-17px 2xl:mt-24px cursor-pointer active:scale-103 duration-200"
                 >Buy Tickets</button>
        
         <p v-if="timeSlot[index].cdMinutes" class="text-9.7px 2xl:text-14px font-extralight text-center m-0 mt-6px">Next available schedule is in {{timeSlot[index].cdHours}}h {{ timeSlot[index].cdMinutes}}m.</p>
