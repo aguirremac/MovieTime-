@@ -7,16 +7,16 @@
     </div>
 
     <!-- main content -->
-    <div class="w-full h-full flex flex-wrap justify-center gap-10px">
+    <div class="w-full h-full flex flex-wrap justify-center gap-10px ">
       <!-- mapped theater cards -->
       <div
         v-for="(cinema, index) in sortedCinemaDetails"
         :key="index"
-        class="flex w-350px h-150px xl:w-624px xl:h-183px bg-#262626 rounded-xl mt-14px cursor-pointer hover:scale-102 duration-200"
+        class="flex  w-350px h-150px xl:w-624px xl:h-183px bg-#262626 rounded-xl mt-14px cursor-pointer hover:scale-102 duration-200 pr-10px"
       >
         <!-- left part -->
-        <div class="">
-          <div class="flex gap-14px w-full pt-10px xl:pt-23px pl-18px xl:pl-26px">
+        <div class="xl:pr-100px">
+          <div class="flex gap-14px w-full pt-10px xl:pt-23px pl-18px xl:pl-26px ">
             <img
               :src="'/cinemas/' + cinema.cinemaPosterURL"
               alt=""
@@ -32,16 +32,18 @@
           <div
             class="pl-20px xl:pl-27px pr-75px xl:pr-150px flex flex-wrap w-full gap-x-15px xl:gap-x-26px mt-10px xl:mt-15px"
           >
-            <h2 v-for="(time, qIndex) in cinema.timeSlot" :key="qIndex" class="m-0 font-light text-12px xl:text-20px">
+            <h2 v-for="(time, qIndex) in cinema.timeSlot" :key="qIndex" 
+                class="m-0 font-light text-12px xl:text-20px"
+                :class="{ 'line-through text-#616161': timeNow >= time }">
               {{ time }}
             </h2>
           </div>
         </div>
 
         <!-- image -->
-        <div v-for="(movie, qIndex) in movies" :key="qIndex" class="flex gap-0 my-auto mr-2px">
-          <div v-if="movie.title === cinema.title" class="overflow-hidden">
-            <img :src="'/images/' + movie.posterLink" alt="" class="h-90px xl:h-142px xl:w-95px object-cover" />
+        <div v-for="(movie, qIndex) in movies" :key="qIndex" class="flex gap-0 my-auto ">
+          <div v-if="movie.title === cinema.title" class="overflow-hidden h-90px xl:h-142px xl:w-95px">
+            <img :src="'/images/' + movie.posterLink" alt="" class="w-full h-full object-cover" />
           </div>
         </div>
       </div>
@@ -54,7 +56,11 @@ const { cinemaDetails } = useSchedule()
 const { movies } = useMovieData()
 // sort cinema location a-z
 const sortedCinemaDetails = cinemaDetails.sort((a, b) => a.location.localeCompare(b.location))
+
+const now = new Date()
+const timeNow = ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2)
 </script>
+
 
 <style scoped>
 a {
